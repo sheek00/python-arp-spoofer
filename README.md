@@ -28,7 +28,7 @@ Install Scapy:
 pip install scapy==2.2.0
 
 ## Usage
-sudo python2 arp_spoofer.py
+python arp_spoofer.py
 
 ## Disclaimer
 This project is for educational and research purposes only. Do NOT use it outside your own lab or any network you do not own.
